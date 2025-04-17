@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ## 📥 Download Model Files
 
 Models are not included in this repository due to size constraints.  
-Contact Me if you want the model files
+Contact Me if you need the model files
 
 - `brain_tumor_xception.h5`
 - `Model2CNN.h5`
@@ -96,11 +96,6 @@ Always consult a qualified medical professional for health-related decisions.
 
 ---
 
-## 🙏 Support
-
-If you face any issues, have suggestions, or want to collaborate, feel free to reach out:
-
----
 
 ## 👨‍💻 Created By
 
