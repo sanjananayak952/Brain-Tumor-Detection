@@ -29,15 +29,17 @@
 
 Here are some snapshots of the tool in action:
 
-## 🖼️ Visual of the Tool
+### 🧠 Main Page
+![Main Page](https://github.com/user-attachments/assets/37f29b69-1d03-4825-baf6-e5c76f6fa230)
 
-Here are some snapshots of the tool in action:
+### 📊 Prediction Result
+![Prediction](https://github.com/user-attachments/assets/860053a6-77eb-4a04-9566-2c69a54ce64d)
 
-![Main Page](https://github.com/user-attachments/assets/37f29b69-1d03-4825-baf6-e5c76f6fa230)  
-![Prediction](https://github.com/user-attachments/assets/860053a6-77eb-4a04-9566-2c69a54ce64d)  
-![Dark Mode](https://github.com/user-attachments/assets/308de52b-b214-4636-8c59-4e28fdb294e3)  
-![Dev Section](https://github.com/user-attachments/assets/a9b09af3-34be-41a2-a960-43e42b006163)  
+### 🌙 Dark Mode Interface
+![Dark Mode](https://github.com/user-attachments/assets/308de52b-b214-4636-8c59-4e28fdb294e3)
 
+### 👨‍💻 Developer Info Section
+![Dev Section](https://github.com/user-attachments/assets/a9b09af3-34be-41a2-a960-43e42b006163)
 ---
 
 ## 🛠️ How to Run Locally
