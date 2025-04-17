@@ -1,0 +1,17 @@
+# Flask Framework
+Flask==2.3.2
+
+# TensorFlow for Model Loading and Predictions
+tensorflow==2.12.0
+
+# NumPy for Numerical Operations
+numpy==1.23.5
+
+# Pillow for Image Processing
+Pillow==9.4.0
+
+# Werkzeug for WSGI Utilities (used by Flask)
+Werkzeug==2.3.6
+
+# Requests for HTTP Requests (if needed for debugging or external APIs)
+requests==2.31.0

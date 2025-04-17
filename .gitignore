@@ -1,0 +1,15 @@
+# Ignore model files
+models/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment files
+venv/
+env/
+.env
+
+# Ignore temporary files
+*.log
+*.tmp

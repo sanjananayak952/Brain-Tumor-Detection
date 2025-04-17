@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Light/Dark Mode Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-button" aria-label="Toggle Theme">
+            <i id="theme-icon" class="fas fa-sun"></i> <!-- Default icon for light mode -->
+        </button>
+        <!-- Cat Point Image -->
+        <img src="/static/images/cat_point.png" alt="Cat Point" class="cat-point">
+    </div>
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+        <!-- Main Content Container -->
+        <div class="container">
+            <!-- Left Section -->
+            <div class="left-section">
+                <h1>Brain Tumor Detection</h1>
+                <!-- Model Selection -->
+                <div class="model-selection">
+                    <label for="model">Select a Model:</label>
+                    <select id="model" name="model" aria-label="Model Selection">
+                        <!-- Dynamically populate the dropdown with model names from metadata.json -->
+                        {% for model_name, details in models.items() %}
+                        <option value="{{ model_name }}">{{ details['name'] }}</option>
+                        {% endfor %}
+                    </select>
+                    <button id="info-button">Show Model Info</button>
+                </div>
+                <!-- Model Info -->
+                <div id="model-info" class="hidden">
+                    <h3>Model Details</h3>
+                    <p><strong>Description:</strong> <span id="description"></span></p>
+                    <p><strong>Accuracy:</strong> <span id="accuracy"></span></p>
+                    <p><strong>Precision:</strong> <span id="precision"></span></p>
+                    <p><strong>Recall:</strong> <span id="recall"></span></p>
+                </div>
+                <!-- Upload Section -->
+                <div class="upload-section">
+                    <h2>Upload an MRI Image</h2>
+                    <label for="file-input" class="drop-area-label">
+                        <div id="drop-area">
+                            <p>Drag & Drop an image here or click to upload</p>
+                        </div>
+                    </label>
+                    <input type="file" id="file-input" name="image" accept="image/*" hidden aria-label="Upload MRI Image">
+                    <div id="image-preview" class="hidden">
+                        <img id="preview-image" src="#" alt="Uploaded MRI Image Preview">
+                        <p id="file-name"></p>
+                    </div>
+                    <button id="predict-button" disabled>Predict</button>
+                    <div id="prediction-result" role="alert"></div>
+                </div>
+            </div>
+            <!-- Right Section -->
+            <div class="right-section">
+                <h2>About Brain Tumors</h2>
+                <p>Brain tumors are abnormal cell growths in the brain that can disrupt normal function. They are classified into:</p>
+                <ul>
+                    <li><strong>Glioma:</strong> Aggressive tumors arising from glial cells.</li>
+                    <li><strong>Meningioma:</strong> Typically benign tumors in the meninges.</li>
+                    <li><strong>No Tumor:</strong> Healthy brain tissue with no abnormalities.</li>
+                    <li><strong>Pituitary Adenoma:</strong> Benign tumors affecting the pituitary gland.</li>
+                </ul>
+                <div class="risk-warning">
+                    <p>
+                        ⚠️<strong>Untreated tumors can cause SEVERE NEUROLOGICAL DAMAGE OR DEATH.</strong> 
+                        Early detection is <strong>CRITICAL</strong> to mitigate risks from factors like genetics, radiation exposure, or toxins.
+                    </p>
+                </div>
+                <h3>Dataset Information</h3>
+                <p>All models were trained on an <strong>MRI images dataset</strong> publicly available on 
+                <a href="https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset/data" target="_blank">Kaggle</a>.</p>
+                <h3>Sample MRI Images</h3>
+                <!-- Added sample-images-container wrapper -->
+                <div class="sample-images-container">
+                    <div class="sample-images" draggable="true" data-image="{{ url_for('static', filename='images/glioma.jpg') }}">
+                        <img src="{{ url_for('static', filename='images/glioma.jpg') }}" alt="Glioma Tumor MRI Image">
+                        <p>Glioma</p>
+                    </div>
+                    <div class="sample-images" draggable="true" data-image="{{ url_for('static', filename='images/meningioma.jpg') }}">
+                        <img src="{{ url_for('static', filename='images/meningioma.jpg') }}" alt="Meningioma Tumor MRI Image">
+                        <p>Meningioma</p>
+                    </div>
+                    <div class="sample-images" draggable="true" data-image="{{ url_for('static', filename='images/notumor.jpg') }}">
+                        <img src="{{ url_for('static', filename='images/notumor.jpg') }}" alt="No Tumor MRI Image">
+                        <p>No Tumor</p>
+                    </div>
+                    <div class="sample-images" draggable="true" data-image="{{ url_for('static', filename='images/pituitary.jpg') }}">
+                        <img src="{{ url_for('static', filename='images/pituitary.jpg') }}" alt="Pituitary Adenoma MRI Image">
+                        <p>Pituitary Adenoma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Separator Line -->
+        <hr class="section-separator">
+
+
+        <!-- About the Developers Section -->
+        <div class="about-developers">
+            <h2>Meet The Dev</h2>
+            <div class="developer-container">
+                <!-- Developer 1 -->
+                <article class="developer-card">
+                    <img src="{{ url_for('static', filename='images/Developers/Aditya.jpg') }}" alt="Aditya Raj - Developer" class="developer-image">
+                    <h3>Aditya Raj</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/Aditya-0009" target="_blank" title="Aditya Raj on GitHub" aria-label="Aditya Raj's GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/aditya-raj-007kj/" target="_blank" title="Aditya Raj on LinkedIn" aria-label="Aditya Raj's LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/_ig._.adi_" target="_blank" title="Aditya Raj on Instagram" aria-label="Aditya Raj's Instagram Profile"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:technoadityaraj@gmail.com" title="Email Aditya Raj" aria-label="Email Aditya Raj"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </article>
+        
+                <!-- Developer 2 
+                <article class="developer-card">
+                    <img src="{{ url_for('static', filename='images/Developers/Tony.jpg') }}" alt="Tony Stark - Developer" class="developer-image">
+                    <h3>Tony Stark</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/johndoe" target="_blank" title="Tony Stark on GitHub" aria-label="Tony Stark's GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/johndoe" target="_blank" title="Tony Stark on LinkedIn" aria-label="Tony Stark's LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/johndoe" target="_blank" title="Tony Stark on Instagram" aria-label="Tony Stark's Instagram Profile"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:johndoe@example.com" title="Email Tony Stark" aria-label="Email Tony Stark"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </article> -->
+                <!-- Developer 3 
+                <article class="developer-card">
+                    <img src="{{ url_for('static', filename='images/Developers/Bruce.jpg') }}" alt="Bruce Banner - Developer" class="developer-image">
+                    <h3>Bruce Banner</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/janesmith" target="_blank" title="Bruce Banner on GitHub" aria-label="Bruce Banner's GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/janesmith" target="_blank" title="Bruce Banner on LinkedIn" aria-label="Bruce Banner's LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/janesmith" target="_blank" title="Bruce Banner on Instagram" aria-label="Bruce Banner's Instagram Profile"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:janesmith@example.com" title="Email Bruce Banner" aria-label="Email Bruce Banner"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </article> -->
+                <!-- Developer 4
+                <article class="developer-card">
+                    <img src="{{ url_for('static', filename='images/Developers/Peter.jpg') }}" alt="Peter Parker - Developer" class="developer-image">
+                    <h3>Peter Parker</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/emmawatson" target="_blank" title="Peter Parker on GitHub" aria-label="Peter Parker's GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/emmawatson" target="_blank" title="Peter Parker on LinkedIn" aria-label="Peter Parker's LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/emmawatson" target="_blank" title="Peter Parker on Instagram" aria-label="Peter Parker's Instagram Profile"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:emmawatson@example.com" title="Email Peter Parker" aria-label="Email Peter Parker"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </article>-->
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

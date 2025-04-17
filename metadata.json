@@ -1,0 +1,75 @@
+{
+    "models": {
+        "brain_tumor_xception": {
+            "name": "Xception Model",
+            "accuracy": 0.9863,
+            "precision": 0.985,
+            "recall": 0.982,
+            "description": "A fine-tuned Xception model with brightness augmentation, progressive dropout, and Adamax optimization for robust and precise brain tumor classification across diverse MRI datasets.",
+            "preprocessing": {
+                "target_size": [299, 299],
+                "normalization": "xception"
+            },
+            "class_labels": ["glioma", "meningioma", "notumor", "pituitary"],
+            "evaluation_metrics": {
+                "test_accuracy": 0.9863
+            },
+            "dataset_description": "Dataset contains 7023 MRI images classified into four categories: Glioma, Meningioma, No Tumor, and Pituitary."
+        },
+        "Model2CNN": {
+            "name": "Custom CNN Model",
+            "accuracy": 0.9802,
+            "precision": 0.96,
+            "recall": 0.95,
+            "description": "A custom Convolutional Neural Network (CNN) trained with advanced data augmentation techniques such as random rotation, zoom, brightness adjustment, and horizontal flipping. The model uses Adamax optimizer and categorical cross-entropy loss for efficient learning.",
+            "preprocessing": {
+                "target_size": [224, 224],
+                "normalization": "rescale=1./255"
+            },
+            "class_labels": ["glioma", "meningioma", "notumor", "pituitary"],
+            "evaluation_metrics": {
+                "test_accuracy": 0.9802,
+                "test_loss": 0.2205
+            },
+            "dataset_description": "Dataset contains 7023 MRI images classified into four categories: Glioma, Meningioma, No Tumor, and Pituitary. Images were resized to 224x224 pixels and normalized using rescale=1./255.",
+            "training_details": {
+                "optimizer": "Adamax",
+                "loss_function": "Categorical Cross-Entropy",
+                "learning_rate": 0.001,
+                "batch_size": 32,
+                "epochs": 50,
+                "callbacks": [
+                    "Early Stopping: Monitored validation loss with a patience of 15 epochs."
+                ]
+            }
+        },
+        "brain_tumor_efficientnetb4": {
+            "name": "EfficientNetB4 Model",
+            "accuracy": 0.9939,
+            "precision": 0.99,
+            "recall": 0.99,
+            "description": "A fine-tuned EfficientNetB4 model leveraging transfer learning with ImageNet weights. It includes dropout regularization and global max pooling for robust brain tumor classification.",
+            "preprocessing": {
+                "target_size": [224, 224],
+                "normalization": "no_normalization"
+            },
+            "class_labels": ["glioma", "meningioma", "notumor", "pituitary"],
+            "evaluation_metrics": {
+                "test_accuracy": 0.9939,
+                "test_loss": 0.0187
+            },
+            "dataset_description": "Dataset contains 7023 MRI images classified into four categories: Glioma, Meningioma, No Tumor, and Pituitary. Images were resized to 224x224 pixels without normalization.",
+            "training_details": {
+                "optimizer": "Adamax",
+                "loss_function": "Categorical Cross-Entropy",
+                "learning_rate": 0.001,
+                "batch_size": 16,
+                "epochs": 14,
+                "callbacks": [
+                    "Early Stopping: Monitored validation loss with a patience of 5 epochs.",
+                    "ReduceLROnPlateau: Reduced learning rate by a factor of 0.2 when validation loss plateaued."
+                ]
+            }
+        }
+    }
+}
