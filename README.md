@@ -1,6 +1,7 @@
 # Brain Tumor Detection
 
-<img src="screenshots/logo.png" width="300"/>  
+<img src="![Brain Tumor](https://github.com/user-attachments/assets/2f64c92e-57ee-4b95-891c-55750193d0c0)
+" width="300"/>  
 <strong>Brain Tumor Detection</strong> is an AI-powered web application designed to classify MRI images into tumor categories such as **Glioma**, **Meningioma**, **No Tumor**, and **Pituitary Adenoma**. It leverages state-of-the-art machine learning models like **Xception**, **Custom CNN**, and **EfficientNetB4** to provide accurate predictions with detailed model metadata.
 
 ---
