@@ -30,10 +30,11 @@
 Here are some snapshots of the tool in action:
 
 
-![Screenshot 1](![image](https://github.com/user-attachments/assets/37f29b69-1d03-4825-baf6-e5c76f6fa230)
-![Screenshot 2](![image](https://github.com/user-attachments/assets/860053a6-77eb-4a04-9566-2c69a54ce64d)
-![Screenshot 3](![image](https://github.com/user-attachments/assets/308de52b-b214-4636-8c59-4e28fdb294e3)
-![Screenshot 4](screenshots/screenshot4.png)  
+![Main Page](![image](https://github.com/user-attachments/assets/37f29b69-1d03-4825-baf6-e5c76f6fa230)
+![Prediction](![image](https://github.com/user-attachments/assets/860053a6-77eb-4a04-9566-2c69a54ce64d)
+![Dark Mode](![image](https://github.com/user-attachments/assets/308de52b-b214-4636-8c59-4e28fdb294e3)
+![Dev](![image](https://github.com/user-attachments/assets/a9b09af3-34be-41a2-a960-43e42b006163)
+
 
 ---
 
