@@ -101,7 +101,7 @@ Always consult a qualified medical professional for health-related decisions.
 
 **Aditya Raj**  
 > Third-year B.Tech CSE | Bennett University  
-> AI Enthusiast • Researcher • Full-stack Developer  
+> AI Enthusiast
 
 - 📧 Email: [technoadityaraj@gmail.com](mailto:technoadityaraj@gmail.com)
 - 💻 GitHub: [@Aditya-0009](https://github.com/Aditya-0009)
