@@ -110,7 +110,5 @@ Always consult a qualified medical professional for health-related decisions.
 
 
 
-**Shivam Garg**  
-- 💻 GitHub: [@JDevShivamGarg](https://github.com/JDevShivamGarg)
 ---
 
